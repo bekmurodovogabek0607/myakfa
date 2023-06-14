@@ -2,11 +2,11 @@
 
 import Container from './Container'
 import './style.scss'
-import { AppstoreOutlined, MailOutlined, SettingOutlined, HomeOutlined, PieChartOutlined, SnippetsOutlined, PlusSquareOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { AppstoreOutlined,  SettingOutlined, HomeOutlined, PieChartOutlined, SnippetsOutlined, PlusSquareOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import React, { useState } from 'react';
-import { Button, Drawer } from 'antd';
+import {  Drawer } from 'antd';
 import AkfaLogo from '../images/akfa.png'
 type MenuItem = Required<MenuProps>['items'][number];
 function getItem(

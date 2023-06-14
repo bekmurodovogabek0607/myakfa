@@ -4,7 +4,7 @@ type ConteinerType={
     
 } &React.ComponentProps<'div'>
 import './style.scss'
-const Container = ({children,...rest }: ConteinerType) => {
+const Container = ({children}: ConteinerType) => {
   return (
     <div  className={'Container'}>
         {children}
