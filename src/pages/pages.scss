@@ -1,0 +1,407 @@
+.AddStyles {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+
+}
+
+.PersonStyles {
+    width: 100%;
+    height: calc(100vh - 100px);
+
+}
+
+.AllDeraza {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+    &>div:nth-child(1) {
+        width: 98%;
+        display: inline-block;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        >div {
+
+            h2 {
+                font-size: 30px;
+                padding: 10px 0px;
+                margin: 0px;
+            }
+
+            label {
+                font-size: 30px;
+            }
+
+            &>input {
+                font-size: 30px;
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+    }
+
+    &>div:nth-child(2) {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+
+
+        &>div {
+            box-shadow: 0px 0px 15px rgb(180, 179, 179);
+            border-radius: 10px;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+
+
+            &>div:nth-child(2) {
+                transform: scale(0.3);
+            }
+
+            .newStyles {
+                position: absolute;
+                width: 100px;
+                text-align: center;
+                left: -40px;
+                top: 15px;
+                background-color: red;
+                font-size: 12px;
+                transform: rotate(-45deg);
+                padding: 5px 20px;
+                color: white;
+                font-weight: bold;
+            }
+        }
+
+        .AddNewStyles {
+
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            font-weight: bold;
+
+            h1 {
+                font-size: 70px;
+                padding: 0%;
+                margin: 0%;
+            }
+
+            h4 {
+                font-size: 20px;
+                padding: 0%;
+                margin: 0%;
+            }
+        }
+
+    }
+
+    &>div:nth-child(3) {
+        padding: 20px 0px;
+    }
+}
+
+.Zakaz {
+    width: 90%;
+    margin: 10px auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 10px;
+
+
+
+}
+
+.Product {
+    margin: 50px auto 10px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    &>div {
+        width: 31%;
+
+        position: relative;
+    }
+
+    .ProductIMg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        position: relative;
+
+        &>div:nth-child(2) {
+            width: 100%;
+            transform: scale(0.8);
+
+
+        }
+
+        &>div:nth-child(3) {
+            width: 100%;
+
+            display: flex;
+
+            overflow-x: scroll;
+            padding: 0%;
+            margin-top: -30px;
+            position: relative;
+            text-align: start;
+            justify-content: start;
+            margin-left: -50px;
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            &>div {
+                width: 100px;
+                height: 150px;
+                transform: scale(0.3);
+
+            }
+
+        }
+
+        h2 {
+            background-color: black;
+            color: white;
+            display: inline-block;
+            padding: 5px;
+            position: absolute;
+            z-index: 1000;
+            top: -20px;
+            left: 0px;
+        }
+    }
+
+    .Korinishlari {
+        width: 100%;
+        display: flex;
+         margin-left: -30px;
+        overflow-x: scroll;
+        height: 200px;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &>div {
+            width: 120px;
+            margin-left: -20px;
+            transform: scale(0.3);
+            cursor: pointer;
+        }
+    }
+}
+.Razmerolish {
+    width: 270px;
+
+    position: relative;
+    display: flex;
+    margin-top: 20px;
+    transform: scaleX(1.1);
+   margin-left: 30px;
+    span {
+        width: 100%;
+        height: 2px;
+        background-color: black;
+        margin-top: 7px;
+
+    }
+
+    input {
+        position: absolute;
+        text-align: center;
+        border: none;
+        margin-top: 10px;
+        background-color: transparent;
+        margin-left: 5%;
+        width: 90%;
+
+        &:focus {
+            border: none;
+            border-color: transparent;
+        }
+    }
+}
+
+.RazmerolishTepa {
+    width: 60px;
+
+    position: absolute;
+    display: flex;
+
+    transform: rotate(90deg);
+ left: 310px;
+    top: -70px;
+
+    //transform: scaleX(1.1);
+    span {
+        width: 100%;
+        height: 2px;
+        background-color: black;
+        margin-top: 7px;
+
+    }
+
+    input {
+        position: absolute;
+        text-align: center;
+        border: none;
+        margin-top: 10px;
+        background-color: transparent;
+        margin-left: 5%;
+        width: 90%;
+
+        &:focus {
+            border: none;
+            border-color: transparent;
+        }
+    }
+}
+.RazmerolishTepas {
+    width: 40px;
+
+    position: absolute;
+    display: flex;
+
+    transform: rotate(90deg);
+ left: 320px;
+    top: -15px;
+
+    //transform: scaleX(1.1);
+    span {
+        width: 100%;
+        height: 2px;
+        background-color: black;
+        margin-top: 7px;
+
+    }
+
+    input {
+        position: absolute;
+        text-align: center;
+        border: none;
+        margin-top: 10px;
+        background-color: transparent;
+        margin-left: 5%;
+        width: 90%;
+
+        &:focus {
+            border: none;
+            border-color: transparent;
+        }
+    }
+}
+
+.Razmerolishboyi {
+    width: 320px;
+
+    position: absolute;
+    display: flex;
+    margin-top: 30px;
+    transform: rotate(90deg);
+    left: 180px;
+    top: 142px;
+
+    //transform: scaleX(1.1);
+    span {
+        width: 100%;
+        height: 2px;
+        background-color: black;
+        margin-top: 7px;
+
+    }
+
+    input {
+        position: absolute;
+        text-align: center;
+        border: none;
+        margin-top: 10px;
+        background-color: transparent;
+        margin-left: 5%;
+        width: 90%;
+
+        &:focus {
+            border: none;
+            border-color: transparent;
+        }
+    }
+}
+.Zakaz{
+    width: 88%;
+   
+    margin: 0px auto;
+    &>div{
+        width: 100%;
+        margin-bottom: 10px;
+        display: flex;
+        &>div:nth-child(1){
+            width: 27%;
+           margin-right: 10px;
+            height: 120px;
+            &>div{
+                margin-left: -50px;
+                margin-top: -100px;
+                transform: scale(0.3);
+            }
+        }
+        &>div:nth-child(2){
+            width: 70%;
+            h2{
+                width: 100%;
+                margin: 0px auto;
+                padding: 10px;
+
+            }
+            &>div{
+                width: 100%;
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+    }
+}
+.BtnSucc{
+   
+    padding: 15px;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 10px;
+    color: white;
+    
+    border: none;
+}
+@media screen and (max-width:1000px) {
+    .Product {
+        &>div {
+            width: 100%;
+        }
+    }
+}

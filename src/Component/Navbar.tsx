@@ -8,6 +8,7 @@ import { Menu } from 'antd';
 import React, { useState } from 'react';
 import {  Drawer } from 'antd';
 import AkfaLogo from '../images/akfa.png'
+import { Link } from 'react-router-dom';
 type MenuItem = Required<MenuProps>['items'][number];
 function getItem(
   label: React.ReactNode,
@@ -26,22 +27,24 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem(<a href='/'>Bosh sahifa</a>, 'sub1', <HomeOutlined />),
-  getItem(<a href='/buyurtma/app'>Mening buyurmalarim</a>, 'sub5', <SnippetsOutlined />),
+  getItem(<Link to='/'>Bosh sahifa</Link>, 'sub1', <HomeOutlined />),
+  getItem(<Link to='/myorder'>Mening buyurmalarim</Link>, 'sub5', <SnippetsOutlined />),
   getItem("Buyurtma olish", 'sub7', <PlusSquareOutlined />, [
-    getItem('Eshiklar', '71'),
-    getItem(<a href={'/deraza/styles'}>Derazalar</a>, '72'),
+    getItem(<Link to="/myeshik">Eshiklar</Link>, '71'),
+    getItem(<Link to={'/myderaza'}>Derazalar</Link>, '72'),
   ]),
-  getItem('Savat', 'sub8', <ShoppingCartOutlined />),
+  getItem(<Link to="/cart">Savat</Link>, 'sub8', <ShoppingCartOutlined />),
   getItem("Yangi Dizayn qo'shish", 'sub2', <AppstoreOutlined />, [
-    getItem('Eshiklar', '5'),
-    getItem(<a href={'/allderaza/allstyles'}>Derazalar</a>, '6'),
+    getItem(<Link to={'/alleshik'}>Eshiklar</Link>, '5'),
+    getItem(<Link to={'/allderaza'}>Derazalar</Link>, '6'),
   ]),
-  getItem('Hisobot', 'sub6', <PieChartOutlined />),
+  getItem(<Link to="/report">Hisobot</Link>, 'sub6', <PieChartOutlined />),
   getItem('Sozlamalar', 'sub4', <SettingOutlined />, [
-    getItem('Eshik Sozlamalari', '9'),
-    getItem('Deraza Sozlamalari', '10'),
-    getItem('Tariflar', '10'),
+    getItem(<Link to="/setting/eshik">Eshik Sozlamalari</Link>, '9'),
+    getItem(<Link to="/setting/deraza">Deraza Sozlamalari</Link>, '10'),
+    getItem(<Link to="/setting/tarif">Tariflar</Link>, '10'),
+    getItem(<Link to="/setting/productprice">Mahsulotlar</Link>, '11'),
+    
   ]),
 
 ];

@@ -1,0 +1,247 @@
+.AllDeraza {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+
+
+    &>div:nth-child(1) {
+        width: 98%;
+        display: inline-block;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        >div {
+            h2 {
+                font-size: 30px;
+                padding: 10px 0px;
+                margin: 0px;
+            }
+
+            label {
+                font-size: 30px;
+            }
+
+            &>input {
+                font-size: 30px;
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+    }
+
+    &>div:nth-child(2) {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+
+
+        &>div {
+            box-shadow: 0px 0px 15px rgb(180, 179, 179);
+            border-radius: 10px;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+
+            &>div:nth-child(2) {
+                transform: scale(0.3);
+            }
+
+            .newStyles {
+                position: absolute;
+                width: 100px;
+                text-align: center;
+                left: -40px;
+                top: 15px;
+                background-color: red;
+                font-size: 12px;
+                transform: rotate(-45deg);
+                padding: 5px 20px;
+                color: white;
+                font-weight: bold;
+            }
+        }
+
+        .AddNewStyles {
+
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            font-weight: bold;
+
+            h1 {
+                font-size: 70px;
+                padding: 0%;
+                margin: 0%;
+            }
+
+            h4 {
+                font-size: 20px;
+                padding: 0%;
+                margin: 0%;
+            }
+        }
+
+    }
+
+    &>div:nth-child(3) {
+        padding: 20px 0px;
+    }
+}
+
+.round {
+    position: relative;
+}
+
+.round label {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 28px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 28px;
+}
+
+.round label:after {
+    border: 2px solid #fff;
+    border-top: none;
+    border-right: none;
+    content: "";
+    height: 6px;
+    left: 7px;
+    opacity: 0;
+    position: absolute;
+    top: 8px;
+    transform: rotate(-45deg);
+    width: 12px;
+}
+
+.round input[type="checkbox"] {
+    visibility: hidden;
+}
+
+.round input[type="checkbox"]:checked+label {
+    background-color: blue;
+    border-color: blue;
+}
+
+.round input[type="checkbox"]:checked+label:after {
+    opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* general styling */
+
+
+
+.container {
+    margin: 0 auto;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+@media screen and (max-width:600px) {
+    .AllDeraza {
+
+        &>div:nth-child(1) {
+            >div {
+                h2 {
+                    font-size: 20px;
+                    
+                }
+
+                label {
+                    font-size: 20px;
+                }
+
+               
+            }
+
+        }
+
+
+        &>div:nth-child(2) {
+
+            gap: 10px;
+
+
+            &>div {
+
+                width: 45%;
+                height: 200px;
+
+
+
+                &>div:nth-child(2) {
+                    transform: scale(0.3);
+                }
+
+                .newStyles {
+
+                    width: 80px;
+
+                    left: -40px;
+                    top: 10px;
+
+                    font-size: 12px;
+
+                    padding: 5px 20px;
+
+                }
+            }
+
+            .AddNewStyles {
+
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                justify-content: center;
+                font-weight: bold;
+
+                h1 {
+                    font-size: 70px;
+                    padding: 0%;
+                    margin: 0%;
+                }
+
+                h4 {
+                    font-size: 20px;
+                    padding: 0%;
+                    margin: 0%;
+                }
+            }
+
+        }
+
+        &>div:nth-child(3) {
+            padding: 20px 0px;
+        }
+    }
+}
