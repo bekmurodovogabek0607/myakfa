@@ -1,6 +1,7 @@
 
 import React from 'react'
 import  './style.scss'
+import { Link } from 'react-router-dom'
 
 type PageBoxType = {
     imgSrc:string
@@ -10,7 +11,7 @@ type PageBoxType = {
 } &   React.ComponentProps<'div'>
 const PageBox = ({children, ...rest }: PageBoxType) => {
     return (
-        <a href={rest.link}>
+        <Link to={rest.link}>
             <div className={'PageBox'}>
                 <div>
                     <img src={rest.imgSrc} />
@@ -19,7 +20,7 @@ const PageBox = ({children, ...rest }: PageBoxType) => {
               
                 <h3>{rest.text}</h3>
             </div>
-        </a>
+        </Link>
     )
 }
 

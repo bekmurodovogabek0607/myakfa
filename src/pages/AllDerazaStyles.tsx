@@ -19,6 +19,7 @@ import { Context } from '../utils/Context'
 
 
 
+
 const AllDerazaStyles = () => {
   const props = useContext(Context)
   function AddMystyles(check: boolean, style: string,arka:boolean) {
@@ -35,6 +36,33 @@ const AllDerazaStyles = () => {
     return true
 
   }
+  function AddAllMystyles(check: boolean) {
+
+    if (check) props?.setMyDerazaStyles([
+       {styles:'Derazastyle1',arka:false},
+       {styles:'Derazastyle2',arka:false},
+       {styles:'Derazastyle3',arka:false},
+       {styles:'Derazastyle4',arka:false},
+       {styles:'Derazastyle5',arka:false},
+       {styles:'Derazastyle6',arka:false},
+       {styles:'Derazastyle7',arka:false},
+       {styles:'Derazastyle8',arka:false},
+       {styles:'Derazastyle9',arka:true},
+       {styles:'Derazastyle10',arka:false},
+       {styles:'Derazastyle11',arka:true},
+       {styles:'Derazastyle12',arka:true},
+       {styles:'Derazastyle13',arka:true},
+       {styles:'Derazastyle14',arka:false},
+
+      
+      ])
+
+
+    else {
+      props?.setMyDerazaStyles([])
+    }
+  }
+
 
 
   return (
@@ -43,7 +71,13 @@ const AllDerazaStyles = () => {
         <h2>Dizaylarni qoshing</h2>
         <div>
           <label htmlFor="hammasi">Barchasi</label>
-          <input type='checkbox' id='hammasi' />
+          <input type='checkbox' id='hammasi' 
+           onChange={(e)=>{
+            AddAllMystyles(e.target.checked)
+           
+
+           }}
+          />
         </div>
       </div>
       <div>
@@ -193,10 +227,11 @@ const AllDerazaStyles = () => {
             </div>
           </div>
         </div>
-        <div className={'AddNewStyles'}>
+       <a href='t.me/bekmurodov_ogabek'>
+       <div style={{cursor:'pointer'}} className={'AddNewStyles'}>
           <h1>+</h1>
           <h4>Yangi dizayn qoshtiring</h4>
-        </div>
+        </div></a> 
 
 
       </div>

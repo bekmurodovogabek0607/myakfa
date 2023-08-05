@@ -9,9 +9,9 @@ import './style.scss'
 
 const ButtonDefaultStyle={
     minWidth: "100px",
-    padding: "10px 20px",
+    padding: "10px 15px",
     borderRadius: "10px",
-    fontSize: "18px",
+    fontSize: "13px",
     fontWeight: "500",
     border: "1px solid",
     cursor: "pointer",

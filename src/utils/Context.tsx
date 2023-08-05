@@ -9,26 +9,18 @@ import React, { createContext, useState } from 'react'
 
 export interface IZakaz{
     ZakazStyles?:string,
-    
+    soni:number
+    id?:string,
     boyi?:number
     eni?:number
     narxi?:number
-    akra?:{
-       
-        asos:number
-        arkaBalandligi:number
-    }
-    DerazaPalla?:{
-        
-         eni:number
-    }
+    akraasos?:number,
+    arkaBalandligi?:number,
+    DerazaPalla?:number,
     ProfilKompani?:string
     oyna?:string
     oynaQavat?:string
-    MaxanizmDeraza?:{
-       
-        nomi:string
-    }
+    MaxanizmDeraza?:string,
     tor?:string
     oshiqmoshiq?:string
     
@@ -36,7 +28,7 @@ export interface IZakaz{
     derazaTutuqich?:string
 
     EshikPastkiQism?:string
-ProfilColor?:string,
+    ProfilColor?:string,
 
 }
 
@@ -45,14 +37,18 @@ export type ContextType = {
     setMyDerazaStyles: React.Dispatch<React.SetStateAction<{styles:string,arka:boolean}[]>>,
     ProfilRagng:string,
     setProfilRang?:React.Dispatch<React.SetStateAction<string>>,
-    SelectDesing:{styles:string,arka:boolean},
-    setSelectDesing:React.Dispatch<React.SetStateAction<{styles:string,arka:boolean}>>,
+    SelectDesing:{styles?:string,arka?:boolean},
+    setSelectDesing:React.Dispatch<React.SetStateAction<{styles?:string,arka?:boolean}>>,
     ArkaBor:boolean,
     setArkaBor:React.Dispatch<React.SetStateAction<boolean>>,
     Zakaz:IZakaz[],
     setZakaz:React.Dispatch<React.SetStateAction<IZakaz[]>>,
     OneZakaz:IZakaz,
     setONeZakaz:React.Dispatch<React.SetStateAction<IZakaz>>,
+    isModalOpen:boolean,
+    setIsModalOpen:React.Dispatch<React.SetStateAction<boolean>>,
+    isModalOpenSoni:boolean,
+    setIsModalOpenSoni:React.Dispatch<React.SetStateAction<boolean>>,
 }
 export const Context = createContext<ContextType | null>(null)
 type ChildrenType = {
@@ -60,11 +56,16 @@ type ChildrenType = {
 }
 const GlobalProvayder = ({ children }: ChildrenType) => {
     const [MyDerazaStyles, setMyDerazaStyles] = useState<{styles:string,arka:boolean}[]>([{styles:'Derazastyle1',arka:false}])
-    const [ProfilRagng,setProfilRang]=useState<string>('')
-    const [SelectDesing,setSelectDesing]=useState<{styles:string,arka:boolean}>({styles:'Derazastyle13',arka:true})
+    const [ProfilRagng,setProfilRang]=useState<string>('rgb(219, 219, 219)')
+    const [SelectDesing,setSelectDesing]=useState<{styles?:string,arka?:boolean}>({})
     const [ArkaBor,setArkaBor]=useState<boolean>(false)
     const [Zakaz,setZakaz]=useState<IZakaz[]>([])
-    const [OneZakaz,setONeZakaz]=useState<IZakaz>({})
+    const [OneZakaz,setONeZakaz]=useState<IZakaz>({ProfilColor:'rgb(219, 219, 219)',id:'1',soni:1})
+    const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+    const [isModalOpenSoni, setIsModalOpenSoni] = useState(false);
+
+ 
+
     return (
         <Context.Provider
             value={{
@@ -79,7 +80,11 @@ const GlobalProvayder = ({ children }: ChildrenType) => {
                 Zakaz,
                 setZakaz,
                 OneZakaz,
-                setONeZakaz
+                setONeZakaz,
+                isModalOpen,
+                setIsModalOpen,
+                isModalOpenSoni,
+                setIsModalOpenSoni
             }}
         >{children}
         </Context.Provider>

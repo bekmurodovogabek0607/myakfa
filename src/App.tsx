@@ -19,6 +19,9 @@ import GlobalProvayder from './utils/Context';
 import { Zakaz } from './pages/Zakaz';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ModalPage from './Component/Modal';
+import ControlledOpenSpeedDial from './Component/Speeds';
+
 function App() {
 
 
@@ -39,13 +42,11 @@ function App() {
         <Route exact path="/setting/tarif" component={Tarif} />
         <Route exact path="/setting/productprice" component={ProductPrice} />
         <Route exact path="/zakaz" component={Zakaz} />
-
-
-
-
-
-      </Switch>
+       </Switch>
+       <ControlledOpenSpeedDial/>
       <ToastContainer />
+      <ModalPage/>
+    
     </GlobalProvayder>
 
     </>

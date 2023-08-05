@@ -10,7 +10,7 @@ import Shisha from '../DerazaKapopka/Shisha'
 
 const Derazastyle6 = ({seerazmer,derazaColor}:
     {seerazmer:'none' | 'block',
-    derazaColor: string
+    derazaColor: string|undefined
      shishaColor:  " rgb(143, 247, 238)" |' rgb(73, 112, 219)'|'rgb(141, 69, 2)'
 
     }) => {

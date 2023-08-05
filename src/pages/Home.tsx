@@ -7,8 +7,8 @@ import '../index.scss'
 const Home = () => {
   return (
     <div className="HomeContainer">
-        <PageBox  imgSrc={eshik} text="Eshiklar" link="/"/>
-        <PageBox  imgSrc={deraza} text="Derazalar" link="/"/>
+        <PageBox  imgSrc={eshik} text="Eshiklar" link="/myeshik"/>
+        <PageBox  imgSrc={deraza} text="Derazalar" link="/myderaza"/>
         <PageBox  imgSrc={fortichka} text="Fortichka" link="/"/>
 
     </div>

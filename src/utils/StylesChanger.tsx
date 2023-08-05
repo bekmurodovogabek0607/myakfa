@@ -14,7 +14,7 @@ import Derazastyle8 from "../Component/derazaStyle/Derazastyle8"
 import Derazastyle10 from "../Component/derazaStyle/Derazastyle9"
 
 
-export default function StylesChanger(style:string|undefined,color:string):JSX.Element{
+export default function StylesChanger(style:string|undefined,color:string|undefined ):JSX.Element{
     
     switch (style) {
         case "Derazastyle1":

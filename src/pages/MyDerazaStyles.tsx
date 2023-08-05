@@ -78,6 +78,9 @@ const MyDerazaStyles = () => {
 
     }
   }
+
+console.log(props?.OneZakaz);
+
   return (
     <>
       {
@@ -96,11 +99,16 @@ const MyDerazaStyles = () => {
                 </div>
                 <div>
                   {
-                    props?.MyDerazaStyles.map((item:{styles:string,arka:boolean}) => {
+                    props?.MyDerazaStyles.map((item: { styles: string, arka: boolean }) => {
                       return (
 
 
-                        <div onClick={() => { router.push('/zakaz'); props.setSelectDesing({styles:item.styles,arka:item.arka}) }} style={{ cursor: "pointer" }}>
+                        <div
+                          onClick={() => {
+                            router.push('/zakaz');
+                            props.setSelectDesing({ styles: item.styles, arka: item.arka })
+                            props?.setONeZakaz({ ...props.OneZakaz, ZakazStyles: item.styles ,id:`${Math.floor(Math.random()*100000000)}`,soni:1})
+                          }} style={{ cursor: "pointer" }}>
                           <div >
                             {/* Yangi mahsulot bo'sa new style yozib qo'yiladi */}
 
