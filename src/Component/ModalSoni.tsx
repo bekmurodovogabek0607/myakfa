@@ -1,13 +1,14 @@
 
 import { Modal } from 'antd';
 import { Context } from '../utils/Context';
-import { useContext } from 'react';
+import { useContext ,useState} from 'react';
 import StylesChanger from '../utils/StylesChanger';
 import './style.scss'
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
 const ModalSoni = ({ DefaultProfilColor }: { DefaultProfilColor: string }) => {
     const props = useContext(Context)
+    const [nimadir,setnimadir]=useState<number>(0)
 const roter=useHistory()
     const handleOk = () => {
 
@@ -15,7 +16,7 @@ const roter=useHistory()
         roter.push('/cart') 
         console.log(props?.OneZakaz);
         toast.success('Saqlandi')
-        props?.setONeZakaz({ProfilColor:'rgb(219, 219, 219)',id:'1',soni:1})
+        props?.setONeZakaz({ProfilColor:'rgb(219, 219, 219)',id:'1',soni:1+nimadir})
         props?.setZakaz([...props.Zakaz, props.OneZakaz])
     };
 
@@ -29,7 +30,7 @@ const roter=useHistory()
             <Modal title="Basic Modal" open={props?.isModalOpenSoni} onOk={handleOk} onCancel={handleCancel}>
                 <div className='MOdalSoni'>
                     <div>
-                        {StylesChanger(props?.SelectDesing.styles, DefaultProfilColor)}
+                        {StylesChanger(props?.SelectDesing.styles, DefaultProfilColor,setnimadir,setnimadir)}
                     </div>
                     <div>
                         <h1> X {props?.OneZakaz.soni}</h1>

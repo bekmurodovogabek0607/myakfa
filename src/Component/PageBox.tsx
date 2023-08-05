@@ -11,10 +11,10 @@ type PageBoxType = {
 } &   React.ComponentProps<'div'>
 const PageBox = ({children, ...rest }: PageBoxType) => {
     return (
-        <Link to={rest.link}>
+        <Link to={rest.link} style={{listStyle:'none',textDecoration:'none'}}>
             <div className={'PageBox'}>
                 <div>
-                    <img src={rest.imgSrc} />
+                    {/* <img src={rest.imgSrc} /> */}
                 </div>
                
               

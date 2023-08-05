@@ -10,11 +10,11 @@ import Shisha from '../DerazaKapopka/Shisha'
 
 import Derazaarka from '../DerazaKapopka/Derazaarka'
 const Derazastyle11 = (
-    {seerazmer,derazaColor}:
+    {seerazmer,derazaColor,setPalla}:
     {seerazmer:'none' | 'block',
-    derazaColor: string|undefined
+     derazaColor: string|undefined
      shishaColor:  " rgb(143, 247, 238)" |' rgb(73, 112, 219)'|'rgb(141, 69, 2)'
-
+     setPalla:React.Dispatch<React.SetStateAction<number>>
     }) => {
     return (
         <div className={styles['Container']}>
@@ -24,7 +24,7 @@ const Derazastyle11 = (
 
                     <Pastkishisha>
                         <Shisha shishaColor={' rgb(143, 247, 238)'} rigth={true}></Shisha>
-                        <Shisha shishaColor={' rgb(143, 247, 238)'} left={true} ><DerazaPalla shishaColor={' rgb(143, 247, 238)'} derazaColor={derazaColor} seerazmer={seerazmer} position='rigth' /></Shisha>
+                        <Shisha shishaColor={' rgb(143, 247, 238)'} left={true} ><DerazaPalla setPalla={setPalla} shishaColor={' rgb(143, 247, 238)'} derazaColor={derazaColor} seerazmer={seerazmer} position='rigth' /></Shisha>
                         <Shisha shishaColor={' rgb(143, 247, 238)'} left={true}></Shisha>
 
 

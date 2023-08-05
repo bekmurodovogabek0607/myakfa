@@ -9,11 +9,11 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 import ShareIcon from '@mui/icons-material/Share';
 
-import Derazastyle4 from './derazaStyle/Derazastyle4';
+
 import { Link } from 'react-router-dom';
 
 const actions = [
-  { icon: <Link to={'/myderaza'}><div  className='SpeedIcon'> <Derazastyle4 shishaColor={'rgb(141, 69, 2)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} /></div></Link> , name: 'Deraza' },
+  { icon: <ShareIcon /> , name: 'Deraza' },
   { icon: <Link to={'/cart'}><ShoppingCartIcon /></Link>, name: 'Cart' },
   { icon: <Link to={'/'}><HomeIcon /></Link>, name: 'Home' },
   { icon: <ShareIcon />, name: 'Share' },

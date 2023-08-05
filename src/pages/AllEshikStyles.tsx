@@ -1,7 +1,10 @@
+import Navbar from "../Component/Navbar"
 
 
 export const AllEshikStyles = () => {
   return (
-    <div>AllEshikStyles</div>
+    <div>
+      <Navbar/>
+      AllEshikStyles</div>
   )
 }

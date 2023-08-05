@@ -18,51 +18,74 @@
     background-color: red;
     color: white;
 }
+
 .BtnDanger {
     background-color: yellow;
     color: rgb(0, 0, 0);
 }
+
 .PageBox {
     width: 300px;
-    box-shadow: 0px 0px 15px rgb(180, 179, 179);
+    box-shadow: 10px 10px 30px rgb(133, 32, 32);
     border-radius: 10px;
-
-    transition: .1s linear;
+    display: flex;
+    position: relative;
+    transition: .2s linear;
     cursor: pointer;
-    color: rgb(0, 0, 0);
-
+    color: rgb(255, 86, 86);
+    overflow: hidden;
     font-size: 30px;
+    background-color: rgba(255, 255, 255, 0.644);
     font-weight: bold;
-h3{
-    padding: 0%;
-}
-    img {
-        width: 150px;
-        height: 150px;
-        object-fit: contain;
 
+
+
+    h3 {
+        padding: 0%;
+        color: rgb(255, 255, 255);
+        z-index: 1;
+    }
+
+    img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        transform: rotate(45deg);
     }
 
     &>div {
         display: flex;
         align-items: center;
         justify-content: center;
-
+        position: absolute;
+        transform: rotate(-45deg);
         margin-top: 50px;
-        width: 100px;
-        height: 100px;
+        left: -35px;
+        z-index: 1;
+        top: -115px;
+        background-color: rgb(248, 0, 0);
+        height: 250px;
+        width: 250px;
 
     }
 
     &:hover {
         transform: scale(1.05);
-
+        background-color: red;
+        &>div {
+         
+          background-color: black;
+            transition: .2s linear;
+        }
+        h3{
+            color: white ;
+        }
     }
 
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+
 
 
 }
@@ -298,25 +321,30 @@ h3{
 
 
 }
-.SpeedIcon{
+
+.SpeedIcon {
     transform: scale(0.07);
-   
+
 }
-.MOdalSoni{
+
+.MOdalSoni {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    &>div{
+
+    &>div {
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    &>div:nth-child(1){
+
+    &>div:nth-child(1) {
         transform: scale(0.5);
         width: 70%;
     }
 }
+
 @media screen and (max-width:600px) {
     .Container {
         width: 95%;

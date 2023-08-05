@@ -1,9 +1,10 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Context, IZakaz } from '../utils/Context';
 import Button from '../Component/Button';
 import './pages.scss'
 import StylesChanger from '../utils/StylesChanger';
 import { useHistory } from 'react-router-dom';
+import Navbar from '../Component/Navbar';
 
 // import MahsulotSoniQosh from '../utils/MahsulotSoniQoshish';
 
@@ -11,6 +12,7 @@ import { useHistory } from 'react-router-dom';
 export const OrderCart = () => {
   const router = useHistory()
   const props = useContext(Context)
+  const [nimadir,setnimadir]=useState<number>(0)
   const showModal = () => {
     props?.setIsModalOpen(true)
   };
@@ -29,8 +31,9 @@ export const OrderCart = () => {
 
   return (
     <>
+    <Navbar/>
       {
-        props?.Zakaz.length == 0 ?
+        props?.Zakaz.length == nimadir ?
           <div style={{ width: '100%', height: window.innerHeight / 2, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <h1>Savat bo'sh</h1>
           </div> :
@@ -42,7 +45,7 @@ export const OrderCart = () => {
               return (
                 <div key={number}>
                   <div>
-                    {StylesChanger(item.ZakazStyles, item.ProfilColor)}
+                    {StylesChanger(item.ZakazStyles, item.ProfilColor, setnimadir, setnimadir)}
                   </div>
                   <div>
                     <h2>{item.narxi != undefined ? item.narxi * item.soni : null} so'm</h2>

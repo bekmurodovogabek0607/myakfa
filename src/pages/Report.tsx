@@ -1,7 +1,12 @@
+import Navbar from "../Component/Navbar"
 
 
 export const Report = () => {
   return (
-    <div>Report</div>
+    <>
+    <Navbar/>
+     <div>Report</div>
+    </>
+   
   )
 }

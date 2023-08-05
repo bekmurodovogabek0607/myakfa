@@ -1,8 +1,11 @@
+import Navbar from "../Component/Navbar"
 
 
 export const SettingEshik = () => {
   
   return (
-    <div>SettingEshik</div>
+  <>
+  <Navbar/>
+    <div>SettingEshik</div></>
   )
 }

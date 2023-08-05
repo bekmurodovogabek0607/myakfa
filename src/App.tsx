@@ -2,51 +2,49 @@
 
 import './App.css'
 import { Route, Switch } from 'react-router-dom';
-import Home from './pages/Home';
-import Navbar from './Component/Navbar';
-import { MyEshikStyles } from './pages/MyEshikStyles';
-import MyDerazaStyles from './pages/MyDerazaStyles';
-import { AllEshikStyles } from './pages/AllEshikStyles';
-import AllDerazaStyles from './pages/AllDerazaStyles';
-import { MyOrder } from './pages/MyOrder';
-import { OrderCart } from './pages/OrderCart';
-import { Report } from './pages/Report';
-import SettingDeraza from './pages/SettingDeraza';
-import { SettingEshik } from './pages/SettingEshik';
-import { Tarif } from './pages/Tarif';
-import { ProductPrice } from './pages/ProductPrice';
+
 import GlobalProvayder from './utils/Context';
-import { Zakaz } from './pages/Zakaz';
+
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ModalPage from './Component/Modal';
-import ControlledOpenSpeedDial from './Component/Speeds';
+
+
+import Register from './pages/Registratsiya';
+import ProtectedRoute from './utils/ProtectedRoute';
+import ProtectedRouteLogin from './utils/ProtectedRouteLogin';
+
+
 
 function App() {
 
 
   return (
     <><GlobalProvayder>
-      <Navbar />
+      {/* <Navbar /> */}
       <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/myeshik" component={MyEshikStyles} />
-        <Route exact path="/myderaza" component={MyDerazaStyles} />
-        <Route exact path="/alleshik" component={AllEshikStyles} />
-        <Route exact path="/allderaza" component={AllDerazaStyles} />
-        <Route exact path="/myorder" component={MyOrder} />
-        <Route exact path="/cart" component={OrderCart} />
-        <Route exact path="/report" component={Report} />
-        <Route exact path="/setting/deraza" component={SettingDeraza} />
-        <Route exact path="/setting/eshik" component={SettingEshik} />
-        <Route exact path="/setting/tarif" component={Tarif} />
-        <Route exact path="/setting/productprice" component={ProductPrice} />
-        <Route exact path="/zakaz" component={Zakaz} />
-       </Switch>
-       <ControlledOpenSpeedDial/>
+        <Route exact path="/" component={ProtectedRouteLogin('Home')} />
+        <Route exact path="/myeshik" component={ProtectedRouteLogin('MyEshikStyles')} />
+        <Route exact path="/myderaza" component={ProtectedRouteLogin('MyDerazaStyles')} />
+        <Route exact path="/alleshik" component={ProtectedRouteLogin('AllEshikStyles')} />
+        <Route exact path="/allderaza" component={ProtectedRouteLogin('AllDerazaStyles')} />
+        <Route exact path="/myorder" component={ProtectedRouteLogin('MyOrder')} />
+        <Route exact path="/cart" component={ProtectedRouteLogin('OrderCart')} />
+        <Route exact path="/report" component={ProtectedRouteLogin('Report')} />
+        <Route exact path="/setting/deraza" component={ProtectedRouteLogin('SettingDeraza')} />
+        <Route exact path="/setting/eshik" component={ProtectedRouteLogin('SettingEshik')} />
+        <Route exact path="/setting/tarif" component={ProtectedRouteLogin('Tarif')} />
+        <Route exact path="/setting/productprice" component={ProtectedRouteLogin('ProductPrice')} />
+        <Route exact path="/zakaz" component={ProtectedRouteLogin('Zakaz')} />
+        <Route exact path="/login" component={ProtectedRoute} />
+        <Route exact path="/register" component={Register} />
+
+
+      </Switch>
+      {/* <ControlledOpenSpeedDial/> */}
       <ToastContainer />
-      <ModalPage/>
-    
+      <ModalPage />
+
     </GlobalProvayder>
 
     </>

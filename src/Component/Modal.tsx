@@ -25,7 +25,7 @@ const SubmitButton = ({ form }: { form: FormInstance }) => {
 
   return (
     <Button type="primary" htmlType="submit" disabled={!submittable}>
-      Submit
+      Saqlash
     </Button>
   );
 };
@@ -58,10 +58,8 @@ const ModalPage = () => {
           <Form.Item>
             <Space>
               <SubmitButton form={form} />
-              <Button type="primary" danger onClick={handleCancel}>Close</Button>
-             
-
-            </Space>
+              <Button type="primary" danger onClick={handleCancel}>Yopish</Button>
+             </Space>
           </Form.Item>
         </Form>
       </Modal>

@@ -1,7 +1,11 @@
+import Navbar from "../Component/Navbar"
 
 
 export const MyOrder = () => {
   return (
-    <div>MyOrder</div>
+    <>
+    <Navbar/>
+    <div>MyOrder</div></>
+    
   )
 }

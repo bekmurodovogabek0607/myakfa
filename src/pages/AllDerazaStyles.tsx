@@ -1,27 +1,16 @@
 import '../Component/allderaza/allderaza.scss'
 
-import Derazastyle2 from '../Component/derazaStyle/Derazastyle2'
-import Derazastyle3 from '../Component/derazaStyle/Derazastyle3'
-import Derazastyle4 from '../Component/derazaStyle/Derazastyle4'
-import Derazastyle5 from '../Component/derazaStyle/Derazastyle5'
-import Derazastyle6 from '../Component/derazaStyle/Derazastyle6'
-import Derazastyle7 from '../Component/derazaStyle/Derazastyle7'
-import Derazastyle8 from '../Component/derazaStyle/Derazastyle8'
-import Derazastyle9 from '../Component/derazaStyle/Derazastyle10'
-import Derazastyle10 from '../Component/derazaStyle/Derazastyle9'
-import Derazastyle11 from '../Component/derazaStyle/Derazastyle11'
-import Derazastyle12 from '../Component/derazaStyle/Derazastyle12'
-import Derazastyle13 from '../Component/derazaStyle/Derazastyle13'
-import Derazastyle14 from '../Component/derazaStyle/Derazastyle14'
-import Derazastyle1 from '../Component/derazaStyle/Derazastyle1'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { Context } from '../utils/Context'
+import Navbar from '../Component/Navbar'
+import StylesChanger from '../utils/StylesChanger'
 
 
 
 
 const AllDerazaStyles = () => {
   const props = useContext(Context)
+  const [nimadir,setnimadir]=useState<number>(0)
   function AddMystyles(check: boolean, style: string,arka:boolean) {
 
     if (check) props?.setMyDerazaStyles([...props.MyDerazaStyles, {styles:style,arka:arka}])
@@ -32,7 +21,7 @@ const AllDerazaStyles = () => {
     }
   }
   function CheckMyStyles(style: string): boolean {
-    if (props?.MyDerazaStyles.filter(item => item.styles == style).length == 0) return false
+    if (props?.MyDerazaStyles.filter(item => item.styles == style).length == nimadir) return false
     return true
 
   }
@@ -66,6 +55,8 @@ const AllDerazaStyles = () => {
 
 
   return (
+    <> 
+    <Navbar/>
     <div className={'AllDeraza'}>
       <div>
         <h2>Dizaylarni qoshing</h2>
@@ -86,7 +77,8 @@ const AllDerazaStyles = () => {
             {/* Yangi mahsulot bo'sa new style yozib qo'yiladi */}
 
           </div>
-          <Derazastyle1 shishaColor={'rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} />
+          {StylesChanger('Derazastyle1', 'rgb(160, 64, 0)',setnimadir,setnimadir)}
+          {/* <Derazastyle1 shishaColor={'rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} /> */}
 
           <div className={'container'}>
             <div className={'round'}>
@@ -97,7 +89,8 @@ const AllDerazaStyles = () => {
         </div>
         <div>
           <div></div>
-          <Derazastyle2 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} />
+          {StylesChanger('Derazastyle2', 'rgb(160, 64, 0)',setnimadir,setnimadir)}
+          {/* <Derazastyle2 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} /> */}
           <div className={'container'}>
             <div className={'round'}>
               <input checked={CheckMyStyles('Derazastyle2')} onChange={(e) => { AddMystyles(e.target.checked, 'Derazastyle2',false) }} type="checkbox" id="checkbox2" />
@@ -107,7 +100,8 @@ const AllDerazaStyles = () => {
         </div>
         <div>
           <div></div>
-          <Derazastyle3 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} />
+          {StylesChanger('Derazastyle3', 'rgb(160, 64, 0)',setnimadir,setnimadir)}
+          {/* <Derazastyle3 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} /> */}
           <div className={'container'}>
             <div className={'round'}>
               <input checked={CheckMyStyles('Derazastyle3')} onChange={(e) => { AddMystyles(e.target.checked, 'Derazastyle3',false) }} type="checkbox" id="checkbox3" />
@@ -117,7 +111,8 @@ const AllDerazaStyles = () => {
         </div>
         <div>
           <div></div>
-          <Derazastyle4 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} />
+          {StylesChanger('Derazastyle4', 'rgb(160, 64, 0)',setnimadir,setnimadir)}
+          {/* <Derazastyle4 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} /> */}
           <div className={'container'}>
             <div className={'round'}>
               <input checked={CheckMyStyles('Derazastyle4')} onChange={(e) => { AddMystyles(e.target.checked, 'Derazastyle4',false) }} type="checkbox" id="checkbox4" />
@@ -127,8 +122,8 @@ const AllDerazaStyles = () => {
         </div>
         <div>
           <div></div>
-
-          <Derazastyle5 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} />
+          {StylesChanger('Derazastyle5', 'rgb(160, 64, 0)',setnimadir,setnimadir)}
+          {/* <Derazastyle5 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} /> */}
           <div className={'container'}>
             <div className={'round'}>
               <input checked={CheckMyStyles('Derazastyle5')} onChange={(e) => { AddMystyles(e.target.checked, 'Derazastyle5',false) }} type="checkbox" id="checkbox5" />
@@ -138,7 +133,8 @@ const AllDerazaStyles = () => {
         </div>
         <div>
           <div></div>
-          <Derazastyle6 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} />
+          {StylesChanger('Derazastyle6', 'rgb(160, 64, 0)',setnimadir,setnimadir)}
+          {/* <Derazastyle6 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} /> */}
           <div className={'container'}>
             <div className={'round'}>
               <input checked={CheckMyStyles('Derazastyle6')} onChange={(e) => { AddMystyles(e.target.checked, 'Derazastyle6',false) }} type="checkbox" id="checkbox6" />
@@ -148,7 +144,8 @@ const AllDerazaStyles = () => {
         </div>
         <div>
           <div></div>
-          <Derazastyle7 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} />
+          {StylesChanger('Derazastyle7', 'rgb(160, 64, 0)',setnimadir,setnimadir)}
+          {/* <Derazastyle7 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} /> */}
           <div className={'container'}>
             <div className={'round'}>
               <input checked={CheckMyStyles('Derazastyle7')} onChange={(e) => { AddMystyles(e.target.checked, 'Derazastyle7',false) }} type="checkbox" id="checkbox7" />
@@ -158,7 +155,8 @@ const AllDerazaStyles = () => {
         </div>
         <div>
           <div></div>
-          <Derazastyle8 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} />
+          {StylesChanger('Derazastyle8', 'rgb(160, 64, 0)',setnimadir,setnimadir)}
+          {/* <Derazastyle8 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} /> */}
           <div className={'container'}>
             <div className={'round'}>
               <input checked={CheckMyStyles('Derazastyle8')} onChange={(e) => { AddMystyles(e.target.checked, 'Derazastyle8',false) }} type="checkbox" id="checkbox8" />
@@ -168,7 +166,8 @@ const AllDerazaStyles = () => {
         </div>
         <div>
           <div></div>
-          <Derazastyle9 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} />
+          {StylesChanger('Derazastyle9', 'rgb(160, 64, 0)',setnimadir,setnimadir)}
+          {/* <Derazastyle9 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} /> */}
           <div className={'container'}>
             <div className={'round'}>
               <input checked={CheckMyStyles('Derazastyle9')} onChange={(e) => { AddMystyles(e.target.checked, 'Derazastyle9',true) }} type="checkbox" id="checkbox9" />
@@ -178,7 +177,8 @@ const AllDerazaStyles = () => {
         </div>
         <div>
           <div></div>
-          <Derazastyle10 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} />
+          {StylesChanger('Derazastyle10', 'rgb(160, 64, 0)',setnimadir,setnimadir)}
+          {/* <Derazastyle10 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} /> */}
           <div className={'container'}>
             <div className={'round'}>
               <input checked={CheckMyStyles('Derazastyle10')} onChange={(e) => { AddMystyles(e.target.checked, 'Derazastyle10',false) }} type="checkbox" id="checkbox10" />
@@ -188,7 +188,8 @@ const AllDerazaStyles = () => {
         </div>
         <div>
           <div></div>
-          <Derazastyle11 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} />
+          {StylesChanger('Derazastyle11', 'rgb(160, 64, 0)',setnimadir,setnimadir)}
+          {/* <Derazastyle11 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} /> */}
           <div className={'container'}>
             <div className={'round'}>
               <input checked={CheckMyStyles('Derazastyle11')} onChange={(e) => { AddMystyles(e.target.checked, 'Derazastyle11',true) }} type="checkbox" id="checkbox11" />
@@ -198,7 +199,8 @@ const AllDerazaStyles = () => {
         </div>
         <div>
           <div></div>
-          <Derazastyle12 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} />
+          {StylesChanger('Derazastyle12', 'rgb(160, 64, 0)',setnimadir,setnimadir)}
+          {/* <Derazastyle12 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} /> */}
           <div className={'container'}>
             <div className={'round'}>
               <input checked={CheckMyStyles('Derazastyle12')} onChange={(e) => { AddMystyles(e.target.checked, 'Derazastyle12',true) }} type="checkbox" id="checkbox12" />
@@ -208,7 +210,8 @@ const AllDerazaStyles = () => {
         </div>
         <div>
           <div className={'newStyles'}>Yangi</div>
-          <Derazastyle13 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} />
+          {StylesChanger('Derazastyle13', 'rgb(160, 64, 0)',setnimadir,setnimadir)}
+          {/* <Derazastyle13 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} /> */}
           <div className={'container'}>
             <div className={'round'}>
               <input checked={CheckMyStyles('Derazastyle13')} onChange={(e) => { AddMystyles(e.target.checked, 'Derazastyle13',true) }} type="checkbox" id="checkbox13" />
@@ -219,7 +222,8 @@ const AllDerazaStyles = () => {
 
         <div>
           <div className={'newStyles'}>Yangi</div>
-          <Derazastyle14 shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} />
+          {StylesChanger('Derazastyle14', 'rgb(160, 64, 0)',setnimadir,setnimadir)}
+          {/* <Derazastyle14  shishaColor={' rgb(143, 247, 238)'} derazaColor={'rgb(160, 64, 0)'} seerazmer={'block'} /> */}
           <div className={'container'}>
             <div className={'round'}>
               <input checked={CheckMyStyles('Derazastyle14')} onChange={(e) => { AddMystyles(e.target.checked, 'Derazastyle14',false) }} type="checkbox" id="checkbox14" />
@@ -227,7 +231,7 @@ const AllDerazaStyles = () => {
             </div>
           </div>
         </div>
-       <a href='t.me/bekmurodov_ogabek'>
+       <a href='https://t.me/bekmurodov_ogabek'>
        <div style={{cursor:'pointer'}} className={'AddNewStyles'}>
           <h1>+</h1>
           <h4>Yangi dizayn qoshtiring</h4>
@@ -239,6 +243,8 @@ const AllDerazaStyles = () => {
         {/* <ButtonLink link='/deraza/styles' text='Dizayn qoshosh' clas='BtnSucc'/>   */}
       </div>
     </div>
+    </>
+   
   )
 }
 

@@ -9,17 +9,18 @@ import Pastkishisha from '../DerazaKapopka/Pastkishisha'
 import DerazaPalla from '../DerazaKapopka/DerazaPalla'
 import Shisha from '../DerazaKapopka/Shisha'
 
-const Derazastyle8 = ({seerazmer,derazaColor}:
+const Derazastyle8 = ( {seerazmer,derazaColor,setPalla,setTepa}:
     {seerazmer:'none' | 'block',
-    derazaColor: string|undefined
+     derazaColor: string|undefined
      shishaColor:  " rgb(143, 247, 238)" |' rgb(73, 112, 219)'|'rgb(141, 69, 2)'
-
+     setPalla:React.Dispatch<React.SetStateAction<number>>
+     setTepa:React.Dispatch<React.SetStateAction<number>>
     }) => {
     return (
         <div className={styles['Container']}>
             <DerazaKaropka seerazmer={seerazmer} tepashisha='block' derazaColor={derazaColor}>
                 <Derazashisha>
-                    <Tepashisha>
+                    <Tepashisha setTepa={setTepa}>
                         <Shisha rigth={true} shishaColor={' rgb(143, 247, 238)'}/>
                         <Shisha left={true} shishaColor={' rgb(143, 247, 238)'}/>
 
@@ -27,9 +28,9 @@ const Derazastyle8 = ({seerazmer,derazaColor}:
                     <Pastkishisha>
 
                         
-                        <Shisha shishaColor={' rgb(143, 247, 238)'} rigth={true} ><DerazaPalla shishaColor={' rgb(143, 247, 238)'} derazaColor={derazaColor} seerazmer={seerazmer} position='rigth' /></Shisha>
+                        <Shisha shishaColor={' rgb(143, 247, 238)'} rigth={true} ><DerazaPalla setPalla={setPalla} shishaColor={' rgb(143, 247, 238)'} derazaColor={derazaColor} seerazmer={seerazmer} position='rigth' /></Shisha>
                         <Shisha shishaColor={' rgb(143, 247, 238)'} left={true}></Shisha>
-                        <Shisha shishaColor={' rgb(143, 247, 238)'} left={true} ><DerazaPalla shishaColor={' rgb(143, 247, 238)'} derazaColor={derazaColor} seerazmer={seerazmer} position='left' /></Shisha>
+                        <Shisha shishaColor={' rgb(143, 247, 238)'} left={true} ><DerazaPalla setPalla={setPalla} shishaColor={' rgb(143, 247, 238)'} derazaColor={derazaColor} seerazmer={seerazmer} position='left' /></Shisha>
 
 
                     </Pastkishisha>

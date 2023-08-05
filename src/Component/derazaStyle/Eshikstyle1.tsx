@@ -1,10 +1,10 @@
 
 import Derazashisha from '../DerazaKapopka/Derazashisha'
 
-import Pastkishisha from '../DerazaKapopka/Pastkishisha'
+// import Pastkishisha from '../DerazaKapopka/Pastkishisha'
 
-import DerazaPalla from '../DerazaKapopka/DerazaPalla'
-import Shisha from '../DerazaKapopka/Shisha'
+// import DerazaPalla from '../DerazaKapopka/DerazaPalla'
+// import Shisha from '../DerazaKapopka/Shisha'
 import Container from '../Container'
 
 import Derazaarka from '../DerazaKapopka/Derazaarka'
@@ -23,10 +23,10 @@ const Eshikstyle1 = (
          
              <EshikKaropka eshikwitdh='140px' tepashisha='none' seerazmer={seerazmer} derazaColor={derazaColor}>
                 <Derazashisha>
-                    <Pastkishisha>
+                    {/* <Pastkishisha>
                         <Shisha shishaColor={shishaColor} left={true} ><DerazaPalla shishaColor={shishaColor} derazaColor={derazaColor} seerazmer='none' position='rigth' /></Shisha>
                       
-                    </Pastkishisha>
+                    </Pastkishisha> */}
 
                 </Derazashisha>
             </EshikKaropka>

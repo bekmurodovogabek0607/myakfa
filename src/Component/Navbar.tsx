@@ -2,13 +2,14 @@
 
 import Container from './Container'
 import './style.scss'
-import { AppstoreOutlined,  SettingOutlined, HomeOutlined, PieChartOutlined, SnippetsOutlined, PlusSquareOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, SettingOutlined, HomeOutlined, PieChartOutlined, SnippetsOutlined, PlusSquareOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
-import React, { useState } from 'react';
-import {  Drawer } from 'antd';
+import React, { useContext, useState } from 'react';
+import { Drawer } from 'antd';
 import AkfaLogo from '../images/akfa.png'
 import { Link } from 'react-router-dom';
+import { Context } from '../utils/Context';
 type MenuItem = Required<MenuProps>['items'][number];
 function getItem(
   label: React.ReactNode,
@@ -40,11 +41,19 @@ const items: MenuItem[] = [
   ]),
   getItem(<Link to="/report">Hisobot</Link>, 'sub6', <PieChartOutlined />),
   getItem('Sozlamalar', 'sub4', <SettingOutlined />, [
-    getItem(<Link to="/setting/eshik">Eshik Sozlamalari</Link>, '9'),
-    getItem(<Link to="/setting/deraza">Deraza Sozlamalari</Link>, '10'),
+    getItem("Mahsulotlar", '9', <SettingOutlined />, [
+      getItem(<Link to="/setting/deraza">Deraza Sozlamalari</Link>, '91'),
+      getItem(<Link to="/setting/eshik">Eshik Sozlamalari</Link>, '91'),
+      getItem(<Link to="/setting/deraza">Fortichka Sozlamalari</Link>, '92'),
+      getItem(<Link to="/setting/deraza">Maxsus dizayn Sozlamalari</Link>, '93'),
+
+    ]),
+
     getItem(<Link to="/setting/tarif">Tariflar</Link>, '10'),
-    getItem(<Link to="/setting/productprice">Mahsulotlar</Link>, '11'),
-    
+    getItem(<Link to="/setting/productprice">Tavar</Link>, '11'),
+    getItem(<Link to="/setting/productprice">Shaxsiy Kabinet</Link>, '12'),
+
+
   ]),
 
 ];
@@ -53,7 +62,7 @@ const items: MenuItem[] = [
 const rootSubmenuKeys = ['sub1', 'sub2', 'sub4', 'sub5', 'sub6', 'sub7', 'sub8'];
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-
+  const props = useContext(Context)
   const showDrawer = () => {
     setOpen(true);
   };
@@ -77,6 +86,7 @@ const Navbar = () => {
         <div>
           <img src={AkfaLogo} height={50} width={150} />
 
+
         </div>
         <div>
           <i style={{ fontSize: '20px', fontWeight: "bold", cursor: 'pointer' }} onClick={showDrawer} className="fa-solid fa-bars"></i>
@@ -84,7 +94,7 @@ const Navbar = () => {
 
       </div>
 
-      <Drawer title={<img src={AkfaLogo} height={30} width={100} />} placement="right" onClose={onClose} open={open}>
+      <Drawer title={<div style={{ width: '100%', display: 'flex', alignItems: "center", justifyContent: "space-between" }}><img src={AkfaLogo} height={30} width={100} /><h4 style={{ padding: "0", margin: '0' }}>{props?.User.name}</h4></div>} placement="right" onClose={onClose} open={open}>
         <Menu
           mode="inline"
           openKeys={openKeys}
