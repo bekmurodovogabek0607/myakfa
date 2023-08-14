@@ -18,31 +18,9 @@ import ModalSoni from '../Component/ModalSoni';
 import Navbar from '../Component/Navbar';
 import { useGet } from '../utils/ApiQuery';
 import { Loading } from '../Component/Loading';
+import Login from './Login';
+import { NoProduct } from '../Component/NoProduct';
 
-// const SubmitButton = ({ form ,handelClick}: { form: FormInstance,handelClick:()=>void}) => {
-//     const [submittable, setSubmittable] = React.useState(false);
-
-//     // Watch all values
-//     const values = Form.useWatch([], form);
-
-//     React.useEffect(() => {
-//         form.validateFields({ validateOnly: true }).then(
-//             () => {
-//                 setSubmittable(true);
-//             },
-//             () => {
-//                 setSubmittable(false);
-//             },
-//         );
-//     }, [values]);
-
-
-//     return (
-//         <Button onClick={handelClick}  type="primary" htmlType="submit" disabled={!submittable}>
-//             Add to Card
-//         </Button>
-//     );
-// };
 interface IProduct {
     maxanizm: { mexanizm: string; narxi: number }[],
 
@@ -54,9 +32,10 @@ interface IProduct {
 
 }
 export const Zakaz = () => {
-    const Product = useGet(['productPrice'], '/myproduct/19')
+        const props = useContext(Context)
+        const Product = useGet(['productPrice'], `/myproduct/${props?.User.id}`)
     const router = useHistory()
-    const props = useContext(Context)
+
     const color: string[] = ['rgb(219, 219, 219)', 'rgb(160, 64, 0)', 'rgb(46, 46, 46)',]
     const [form] = Form.useForm();
     const [palla, setPalla] = useState<number>(0)
@@ -64,41 +43,43 @@ export const Zakaz = () => {
 
     const [DefaultProfilColor, setDefaultProfilColor] = useState<string>("rgb(219, 219, 219)")
 
-    const ValueCreator = (name: string, value: IProduct): { value: string | number, label: string }[] => {
+    const ValueCreator = (name: string, Product: IProduct): { value: string | number, label: string }[] => {
         let result: { value: string | number, label: string }[] = []
+        console.log(Product);
+        
         if (name == 'profil') {
-            for (let i = 0; i < value.profil.length; i++) {
-                result.push({ label: value.profil[i].profil, value: value.profil[i].profil })
+            for (let i = 0; i < Product.profil.length; i++) {
+                result.push({ label: Product.profil[i].profil, value: Product.profil[i].profil })
             }
             return result
         }
         // if (name == 'mexanizm') {
-        //     for (let i = 0; i < value.maxanizm.length; i++) {
-        //         result.push({ label: value.maxanizm[i].mexanizm, value: value.maxanizm[i].narxi })
+        //     for (let i = 0; i < Product?.maxanizm.length; i++) {
+        //         result.push({ label: Product.maxanizm[i].mexanizm, value: Product.maxanizm[i].narxi })
         //     }
         //     return result
         // }
         if (name == 'pastki') {
-            for (let i = 0; i < value.pastki.length; i++) {
-                result.push({ label: value.pastki[i].profil, value: value.pastki[i].narxi })
+            for (let i = 0; i < Product.pastki.length; i++) {
+                result.push({ label: Product.pastki[i].profil, value: Product.pastki[i].narxi })
             }
             return result
         }
         if (name == 'shisha') {
-            for (let i = 0; i < value.shisha.length; i++) {
-                result.push({ label: value.shisha[i].shisha, value: value.shisha[i].narxi })
+            for (let i = 0; i < Product.shisha.length; i++) {
+                result.push({ label: Product.shisha[i].shisha, value: Product.shisha[i].narxi })
             }
             return result
         }
         if (name == 'tor') {
-            for (let i = 0; i < value.tor.length; i++) {
-                result.push({ label: value.tor[i].tor, value: value.tor[i].narxi })
+            for (let i = 0; i < Product.tor.length; i++) {
+                result.push({ label: Product.tor[i].tor, value: Product.tor[i].narxi })
             }
             return result
         }
         if (name == 'zamok') {
-            for (let i = 0; i < value.zamok.length; i++) {
-                result.push({ label: value.zamok[i].zamok, value: String(value.zamok[i].narxi) })
+            for (let i = 0; i < Product.zamok.length; i++) {
+                result.push({ label: Product.zamok[i].zamok, value: String(Product.zamok[i].narxi) })
             }
             return result
         }
@@ -123,6 +104,7 @@ export const Zakaz = () => {
 
     return (
         <>
+         {props?.User.name==''?<Login/>:    <>
             <Navbar />
             <div>
 
@@ -179,6 +161,7 @@ export const Zakaz = () => {
                         {
                             !Product.isSuccess ?
                                 <Loading/> :
+                                Product.data=='no date'?<NoProduct/>:
                                 <Form form={form} name="validateOnly" layout="vertical" autoComplete="off">
 
                                     
@@ -316,6 +299,8 @@ export const Zakaz = () => {
             </div> */}
                 <ModalSoni DefaultProfilColor={DefaultProfilColor} />
             </div></>
-
+}
+        </>
+    
     )
 }

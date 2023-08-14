@@ -5,6 +5,9 @@ import { Button, Form, Input, Space } from 'antd';
 import './pages.scss'
 import { useGet, usePost } from "../utils/ApiQuery";
 import { Loading } from "../Component/Loading";
+import Login from "./Login";
+import { useContext } from "react";
+import { Context } from "../utils/Context";
 
 
 // interface IProduct {
@@ -18,11 +21,13 @@ import { Loading } from "../Component/Loading";
 
 // }
 export const ProductPrice = () => {
-  const Product=useGet(['productPrice'],'/myproduct/19')
+  const props=useContext(Context)
+  const Product=useGet(['productPrice'],`/myproduct/${localStorage.getItem('my-akfa-id')}`)
   const ProductPost = usePost('/myproduct')
   
 
 
+console.log(localStorage.getItem('my-akfa-x-access-token'));
 
   
 
@@ -30,7 +35,7 @@ export const ProductPrice = () => {
   const onFinish = (values: any) => {
     console.log(values);
     ProductPost.mutate({
-      userId: '19',
+      userId: `${localStorage.getItem('my-akfa-id')}`,
       product: values
     }, {
       onSuccess: (resp => {
@@ -50,6 +55,8 @@ export const ProductPrice = () => {
 
   return (
     <>
+    
+    {props?.User.name==''?<Login/>:  <>
       <Navbar />
       <div>
         {!Product.isSuccess?<Loading/>:
@@ -383,6 +390,7 @@ export const ProductPrice = () => {
         </Form></div>}
       </div>
       
-        </>
+        </>}</>
+  
   )
 }

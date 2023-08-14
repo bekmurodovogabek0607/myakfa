@@ -2,4 +2,10 @@
   background-color: red;
   width: 300px;
   position: relative;
+}
+
+.Container {
+  margin: 0px auto;
+  position: relative;
+  padding: 10px;
 }/*# sourceMappingURL=style.module.css.map */

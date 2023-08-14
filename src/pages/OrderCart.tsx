@@ -5,6 +5,7 @@ import './pages.scss'
 import StylesChanger from '../utils/StylesChanger';
 import { useHistory } from 'react-router-dom';
 import Navbar from '../Component/Navbar';
+import Login from './Login';
 
 // import MahsulotSoniQosh from '../utils/MahsulotSoniQoshish';
 
@@ -30,7 +31,8 @@ export const OrderCart = () => {
 
 
   return (
-    <>
+  <>
+   {props?.User.name==''?<Login/>: <>
     <Navbar/>
       {
         props?.Zakaz.length == nimadir ?
@@ -79,6 +81,7 @@ export const OrderCart = () => {
             </div>
           </div>
       }
-    </>
+    </>}</>
+   
   )
 }

@@ -7,7 +7,11 @@ import { Link } from 'react-router-dom';
 import { usePost } from '../utils/ApiQuery';
 import { toast } from 'react-toastify';
 import { Context } from '../utils/Context';
+import Register from './Registratsiya';
 const Login = () => {
+  
+ 
+  
   const props=useContext(Context)
   const Login = usePost('/login')
   const onFinish = (values: any) => {
@@ -19,9 +23,15 @@ const Login = () => {
           toast.error("Email.yoki parol noto'g'ri")
         }
         else{
+          console.log(dat.data);
+          
           localStorage.setItem("my-akfa-x-access-token", dat?.data?.token)
-          props?.setUser({email:dat.data?.email,name:dat.data?.name})
+          localStorage.setItem('my-akfa-tel',dat.data?.tel)
+          localStorage.setItem('my-akfa-password',dat.data?.password)
+          localStorage.setItem('my-akfa-id',dat.data?._id)
 
+          props?.setUser({email:dat.data?.tel,name:dat.data?.name,id:dat.data?._id})
+          
         }
         
 
@@ -34,7 +44,8 @@ const Login = () => {
   };
 
   return (
-    <div className='Registratsiya'>
+    <>
+    {localStorage.getItem("my-akfa-x-access-token")==''?<Register/>: <div className='Registratsiya'>
       <div>
         <h2>Login</h2>
         <Form
@@ -44,9 +55,9 @@ const Login = () => {
           onFinish={onFinish}
         >
           <Form.Item
-            name="email"
+            name="tel"
 
-            rules={[{ required: true, message: 'Iltimos emailni kiriting' }, { type: 'email', message: 'Email xato kiritildi' }]}
+            rules={[{ required: true, message: 'Iltimos Telefon nomerni kiriting' }, { max:13,min:13, message: '+998991234567 kabi kiriting' }]}
           >
             <Input prefix={<MailOutlined className="site-form-item-icon" />} placeholder="Email" />
           </Form.Item>
@@ -78,7 +89,9 @@ const Login = () => {
           </Form.Item>
         </Form>
       </div>
-    </div>
+    </div>}
+    </>
+   
   );
 };
 

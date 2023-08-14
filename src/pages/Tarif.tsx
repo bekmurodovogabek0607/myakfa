@@ -1,10 +1,13 @@
 import Navbar from "../Component/Navbar"
 import type { RadioChangeEvent } from 'antd';
 import {  Radio, Space } from 'antd';
-import { useState } from "react";
+import { useContext, useState } from "react";
 import './pages.scss'
+import Login from "./Login";
+import { Context } from "../utils/Context";
 
 export const Tarif = () => {
+  const props=useContext(Context)
   const [value, setValue] = useState(1);
   const onChange = (e: RadioChangeEvent) => {
     console.log('radio checked', e.target.value);
@@ -12,6 +15,7 @@ export const Tarif = () => {
   };
   return (
     <>
+     {props?.User.name==''?<Login/>:  <>
       <Navbar />
       <div className="corpushTarif">
         
@@ -30,7 +34,8 @@ export const Tarif = () => {
       </Radio.Group>
       <button>Tarifni joriy qilish</button>
        </div>
-      </>
+      </>}</>
+  
       
   )
 }

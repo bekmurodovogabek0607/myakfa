@@ -6,6 +6,7 @@ import './pages.scss'
 import img from '../images/derazastyles1.jpg'
 import Navbar from "../Component/Navbar"
 import StylesChanger from "../utils/StylesChanger"
+import Login from "./Login"
 
 const MyDerazaStyles = () => {
   const props = useContext(Context)
@@ -17,6 +18,7 @@ console.log(props?.OneZakaz);
 
   return (
     <>
+     {props?.User.name==''?<Login/>:  <>
     <Navbar/>
       {
 
@@ -68,7 +70,9 @@ console.log(props?.OneZakaz);
 
         </div>
       }
+    </>}
     </>
+  
   )
 }
 

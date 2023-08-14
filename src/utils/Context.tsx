@@ -49,8 +49,8 @@ export type ContextType = {
     setIsModalOpen:React.Dispatch<React.SetStateAction<boolean>>,
     isModalOpenSoni:boolean,
     setIsModalOpenSoni:React.Dispatch<React.SetStateAction<boolean>>,
-    User:{email?:string,name?:string},
-    setUser:React.Dispatch<React.SetStateAction<{email?:string,name?:string}>>,
+    User:{email?:string,name?:string,id?:string},
+    setUser:React.Dispatch<React.SetStateAction<{email?:string,name?:string,id?:string}>>,
 }
 export const Context = createContext<ContextType | null>(null)
 type ChildrenType = {
@@ -65,7 +65,7 @@ const GlobalProvayder = ({ children }: ChildrenType) => {
     const [OneZakaz,setONeZakaz]=useState<IZakaz>({ProfilColor:'rgb(219, 219, 219)',id:'1',soni:1})
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
     const [isModalOpenSoni, setIsModalOpenSoni] = useState(false);
-    const [User,setUser]=useState<{email?:string,name?:string}>({email:'sss',name:'Bekmurodov Ogabek'})
+    const [User,setUser]=useState<{email?:string,name?:string,id?:string}>({email:'',name:''})
 
 
  

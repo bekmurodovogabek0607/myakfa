@@ -4,6 +4,7 @@ import { useContext, useState } from 'react'
 import { Context } from '../utils/Context'
 import Navbar from '../Component/Navbar'
 import StylesChanger from '../utils/StylesChanger'
+import Login from './Login'
 
 
 
@@ -55,7 +56,8 @@ const AllDerazaStyles = () => {
 
 
   return (
-    <> 
+    <>
+     {props?.User.name==''?<Login/>:  <> 
     <Navbar/>
     <div className={'AllDeraza'}>
       <div>
@@ -243,7 +245,9 @@ const AllDerazaStyles = () => {
         {/* <ButtonLink link='/deraza/styles' text='Dizayn qoshosh' clas='BtnSucc'/>   */}
       </div>
     </div>
+    </>}
     </>
+  
    
   )
 }

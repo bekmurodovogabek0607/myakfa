@@ -7,6 +7,7 @@ import './pages.scss'
 import Navbar from "../Component/Navbar"
 import { Setting } from "../Component/SettingStyle.tsx/Setting"
 import StylesChanger from "../utils/StylesChanger"
+import Login from "./Login"
 
 
 const SettingDeraza = () => {
@@ -25,6 +26,7 @@ const SettingDeraza = () => {
   }
   return (
     <>
+     {props?.User.name==''?<Login/>:  <>
       <Navbar />
       <div>
         <h3 style={{marginLeft:"10px"}}>Mehnat haqqini qo'shish</h3>
@@ -40,7 +42,8 @@ const SettingDeraza = () => {
       </div>
 
 
-    </>
+    </>}</>
+  
   )
 }
 
