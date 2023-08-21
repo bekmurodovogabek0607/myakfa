@@ -2,7 +2,7 @@ import React from 'react'
 type ButtonBox = {
     text?:string
     handelClick:()=>void
-    class?:'BtnSucc'|'BtnErr'|'BtnDanger'
+    class?:'BtnSucc'|'BtnErr'|'BtnDanger'|'BtnUpdate'
 } & React.ComponentProps<'button'>
 import './style.scss'
 

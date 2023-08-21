@@ -23,6 +23,9 @@ const roter=useHistory()
     const handleCancel = () => {
         props?.setIsModalOpenSoni(false);
     };
+    function currencyFormat(num:number) {
+        return  num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+     }
 
     return (
         <>
@@ -37,7 +40,7 @@ const roter=useHistory()
                     </div>
 
                 </div>
-                <h2>{props?.OneZakaz.narxi != undefined ? props?.OneZakaz.narxi * props?.OneZakaz.soni : null} so'm</h2>
+                <h2>{currencyFormat(props?.OneZakaz.narxi != undefined ? props?.OneZakaz.narxi * props?.OneZakaz.soni : 0)} so'm</h2>
                 <div className='AddCopyDesing'>
                     <button onClick={() => { if (props?.OneZakaz.soni! > 1) { props?.setONeZakaz({ ...props.OneZakaz, soni: props.OneZakaz.soni - 1 }) } }}>-</button>
                     <h4>{props?.OneZakaz.soni}</h4>

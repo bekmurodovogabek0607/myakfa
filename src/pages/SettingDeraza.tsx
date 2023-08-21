@@ -8,11 +8,14 @@ import Navbar from "../Component/Navbar"
 import { Setting } from "../Component/SettingStyle.tsx/Setting"
 import StylesChanger from "../utils/StylesChanger"
 import Login from "./Login"
+import { useGet } from "../utils/ApiQuery"
 
 
 const SettingDeraza = () => {
   const props = useContext(Context)
+  const GetMystyles=useGet(['mystyles'],`/mystyles/${localStorage.getItem('my-akfa-id')}`)
   const [nimadir,setnimadir]=useState<number>(0)
+  console.log(GetMystyles.data);
   
 
   console.log(props?.OneZakaz);
@@ -24,6 +27,7 @@ const SettingDeraza = () => {
     }
     return mass
   }
+ 
   return (
     <>
      {props?.User.name==''?<Login/>:  <>
@@ -31,10 +35,10 @@ const SettingDeraza = () => {
       <div>
         <h3 style={{marginLeft:"10px"}}>Mehnat haqqini qo'shish</h3>
         {
-          StyleCreator(14).map((item:string)=>{
+          StyleCreator(14+nimadir).map((item:string)=>{
             return(
 
-              <Setting styles={StylesChanger(item,'rgb(160, 64, 0)',setnimadir,setnimadir)} foiz={nimadir+26} qoshimcha={50000}/>
+              <Setting styleName={item} styles={StylesChanger(item,'rgb(160, 64, 0)',setnimadir,setnimadir)} foiz={0} qoshimcha={0}/>
             )
           })
         }

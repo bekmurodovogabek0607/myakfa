@@ -2,7 +2,7 @@
 
 import Container from './Container'
 import './style.scss'
-import { AppstoreOutlined, SettingOutlined, HomeOutlined, PieChartOutlined, SnippetsOutlined, PlusSquareOutlined, ShoppingCartOutlined } from '@ant-design/icons';
+import {  SettingOutlined, HomeOutlined, PieChartOutlined, SnippetsOutlined, PlusSquareOutlined, ShoppingCartOutlined } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import React, { useContext, useState } from 'react';
@@ -35,10 +35,7 @@ const items: MenuItem[] = [
     getItem(<Link to={'/myderaza'}>Derazalar</Link>, '72'),
   ]),
   getItem(<Link to="/cart">Savat</Link>, 'sub8', <ShoppingCartOutlined />),
-  getItem("Yangi Dizayn qo'shish", 'sub2', <AppstoreOutlined />, [
-    getItem(<Link to={'/alleshik'}>Eshiklar</Link>, '5'),
-    getItem(<Link to={'/allderaza'}>Derazalar</Link>, '6'),
-  ]),
+  
   getItem(<Link to="/report">Hisobot</Link>, 'sub6', <PieChartOutlined />),
   getItem('Sozlamalar', 'sub4', <SettingOutlined />, [
     getItem("Mahsulotlar", '9', <SettingOutlined />, [

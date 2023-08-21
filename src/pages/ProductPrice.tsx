@@ -1,14 +1,15 @@
 import Navbar from "../Component/Navbar"
 import { toast } from 'react-toastify';
 import { PlusOutlined } from '@ant-design/icons';
-import { Button, Form, Input, Space } from 'antd';
+import { Button, Form, Input, Space ,Typography} from 'antd';
+
 import './pages.scss'
 import { useGet, usePost } from "../utils/ApiQuery";
 import { Loading } from "../Component/Loading";
 import Login from "./Login";
 import { useContext } from "react";
 import { Context } from "../utils/Context";
-
+const { Text } = Typography;
 
 // interface IProduct {
 //   maxanizm: { mexanizm: string; narxi: number }[],
@@ -52,6 +53,7 @@ console.log(localStorage.getItem('my-akfa-x-access-token'));
     })
 
   };
+console.log(Product.data);
 
   return (
     <>
@@ -59,7 +61,7 @@ console.log(localStorage.getItem('my-akfa-x-access-token'));
     {props?.User.name==''?<Login/>:  <>
       <Navbar />
       <div>
-        {!Product.isSuccess?<Loading/>:
+        {!Product.isSuccess?<div><Loading/><div style={{textAlign:'center',width:'100%'}}><Text  type="danger">30 SONIYADA YUKLANMASA SAHIFANI YANGILANG</Text></div></div>:
         <div>
         <Form
           name="dynamic_form_nest_item"

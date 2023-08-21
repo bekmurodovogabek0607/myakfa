@@ -28,7 +28,10 @@ export const OrderCart = () => {
     else return a
 
   }, 0);
-
+  function currencyFormat(num:number) {
+    return  num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+ }
+console.log(currencyFormat(344566672));
 
   return (
   <>
@@ -38,6 +41,7 @@ export const OrderCart = () => {
         props?.Zakaz.length == nimadir ?
           <div style={{ width: '100%', height: window.innerHeight / 2, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <h1>Savat bo'sh</h1>
+            <Button handelClick={()=>{router.push('/')}} text="Buyurtma olish" class='BtnSucc'/>
           </div> :
           <div className='Zakaz'>
 
@@ -50,16 +54,13 @@ export const OrderCart = () => {
                     {StylesChanger(item.ZakazStyles, item.ProfilColor, setnimadir, setnimadir)}
                   </div>
                   <div>
-                    <h2>{item.narxi != undefined ? item.narxi * item.soni : null} so'm</h2>
+                    <h2>{currencyFormat(item.narxi != undefined ? item.narxi * item.soni : 0)} so'm</h2>
                     <h2>X {item.soni} ta</h2>
 
 
                     <div>
                       <Button class='BtnErr' text="O'chirish" handelClick={() => {props.setZakaz(props?.Zakaz.filter((tem: IZakaz) => tem.id != item.id))  }} />
-                      <Button class='BtnSucc' text="Tahrirlash" handelClick={() => {
-                        props.setONeZakaz(item)
-                        router.push('/zakaz')
-                      }} />
+                      
                     </div>
 
 
@@ -72,11 +73,12 @@ export const OrderCart = () => {
 
             <div>
               <h3>
-                {sum} so'm
+                {currencyFormat(sum==undefined?0:sum)} so'm
               </h3>
             </div>
             <div>
-
+              <Button handelClick={()=>{router.push('/')}} text="Yana Qo'shish" class='BtnSucc'/>
+              <h4 style={{padding:'20px'}}></h4>
               <button onClick={showModal} style={{ width: '100%' }} className='BtnSucc'>Buyurtmani qabul qilish</button>
             </div>
           </div>

@@ -4,35 +4,316 @@ interface IProfil {
     orta: number
     shishaushla: number
 }
-const ww = 5
+const ww = 3
 
-export default function NarxHisoblash(style: string | undefined, eni: number | undefined, boyi: number | undefined, tepa: number, pallaEni: number, profil: IProfil, shisha: number, mexanizm: number, tor: number, zamok: number): number {
-    if (eni == undefined || boyi == undefined) return 10
+export default function NarxHisoblash(
+    style: string | undefined,
+    eni: number | undefined,
+    boyi: number | undefined,
+    tepa: number,
+    pallaEni: number,
+    profil: IProfil,
+    shisha: number,
+    mexanizm: number,
+    tor: number,
+    zamok: number,
+    shishaQavat: number,
+    qoshimcha: {
+        foiz: number,
+        price: number
+    },
+    arkaBaland: number,
+    arkaAsos: number):
+    number {
+    console.log(eni);
+    console.log(boyi);
+    console.log(tepa);
+    console.log(pallaEni);
+    console.log(profil);
+    console.log(shisha);
+    console.log(mexanizm);
+    console.log(tor);
+    console.log(zamok);
+
+
+
+    if (eni == undefined || boyi == undefined) return 10671277.2323333
     else {
         switch (style) {
+            case 'Derazastyle1':
+                return ((
+                    Kosa(eni, boyi, profil.kosa) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+
+                    Palla(pallaEni, 2, eni, (boyi - tepa), profil.kosa) +
+                    Shitapik(eni, boyi, profil.shishaushla) +
+                    (shishaQavat * Shisha(pallaEni, 2, eni, (boyi - tepa - ww - ww), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 2, eni, (boyi - tepa), shisha)) +
+
+                    Zamok(1, zamok) +
+                    Mexanimz(1, mexanizm) +
+                    Tor(1, pallaEni, boyi, eni, tepa, tor)
+                ) * (1 + (qoshimcha.foiz / 100))) + qoshimcha.price
+            case 'Derazastyle2':
+                return ((
+                    Kosa(eni, boyi, profil.kosa) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+                    Palla(pallaEni, 3, eni, (boyi - tepa), profil.kosa) +
+                    Shitapik(eni, boyi, profil.shishaushla) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa - ww - ww), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa), shisha)) +
+                    Zamok(1, zamok) +
+                    Mexanimz(1, mexanizm) +
+                    Tor(1, pallaEni, boyi, eni, tepa, tor)
+                ) * (1 + (qoshimcha.foiz / 100))) + qoshimcha.price
             case 'Derazastyle3':
-                return (
+                return ((
                     Kosa(eni, boyi, profil.kosa) +
                     Orta((boyi - ww - tepa), profil.orta) +
                     Orta((eni - ww), profil.orta) +
                     Palla(pallaEni, 2, eni, (boyi - tepa), profil.kosa) +
                     Shitapik(eni, boyi, profil.shishaushla) +
-                    Shisha(pallaEni, 2, eni, (boyi - tepa - ww - ww), shisha) +
-                    Shisha(pallaEni, 2, eni, (boyi - tepa), shisha) +
-                    Shisha(tepa, 2, eni, eni, shisha) +
+                    (shishaQavat * Shisha(pallaEni, 2, eni, (boyi - tepa - ww - ww), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 2, eni, (boyi - tepa), shisha)) +
+                    (shishaQavat * Shisha(tepa, 2, eni, eni, shisha)) +
                     Zamok(1, zamok) +
                     Mexanimz(1, mexanizm) +
                     Tor(1, pallaEni, boyi, eni, tepa, tor)
-                )
+                ) * (1 + (qoshimcha.foiz / 100))) + qoshimcha.price
+            case 'Derazastyle4':
+                return ((
+                    Kosa(eni, boyi, profil.kosa) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+
+                    Orta((eni - ww), profil.orta) +
+                    Palla(pallaEni, 3, eni, (boyi - tepa), profil.kosa) +
+                    Shitapik(eni, boyi, profil.shishaushla) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa - ww - ww), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa), shisha)) +
+
+                    (shishaQavat * Shisha(tepa, 3, eni, eni, shisha)) +
+                    Zamok(1, zamok) +
+                    Mexanimz(1, mexanizm) +
+                    Tor(1, pallaEni, boyi, eni, tepa, tor)
+                ) * (1 + (qoshimcha.foiz / 100))) + qoshimcha.price
+            case 'Derazastyle5':
+                return ((
+                    Kosa(eni, boyi, profil.kosa) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+
+                    Orta((eni - ww), profil.orta) +
+                    Palla(pallaEni, 3, eni, (boyi - tepa), profil.kosa) +
+                    Palla(pallaEni, 3, eni, (boyi - tepa), profil.kosa) +
+
+                    Shitapik(eni, boyi, profil.shishaushla) +
+                    (shishaQavat * Shisha(pallaEni, 2, eni, (boyi - tepa - ww - ww), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 2, eni, (boyi - tepa - ww - ww), shisha)) +
+
+                    (shishaQavat * Shisha(pallaEni, 2, eni, (boyi - tepa), shisha)) +
+                    (shishaQavat * Shisha(tepa, 2, eni, eni, shisha)) +
+                    Zamok(1, zamok) +
+                    Mexanimz(1, mexanizm) +
+                    Tor(1, pallaEni, boyi, eni, tepa, tor)
+                ) * (1 + (qoshimcha.foiz / 100))) + qoshimcha.price
+            case 'Derazastyle6':
+                return ((
+                    Kosa(eni, boyi, profil.kosa) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+                    Palla(pallaEni, 3, eni, (boyi - tepa), profil.kosa) +
+                    Palla(pallaEni, 3, eni, (boyi - tepa), profil.kosa) +
+
+                    Shitapik(eni, boyi, profil.shishaushla) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa - ww - ww), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa - ww - ww), shisha)) +
+
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa), shisha)) +
+
+                    Zamok(1, zamok) +
+                    Mexanimz(1, mexanizm) +
+                    Tor(1, pallaEni, boyi, eni, tepa, tor)
+                ) * (1 + (qoshimcha.foiz / 100))) + qoshimcha.price
+            case 'Derazastyle7':
+                return ((
+                    Kosa(eni, boyi, profil.kosa) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+
+                    Orta((eni - ww), profil.orta) +
+                    Orta((tepa), profil.orta) +
+                    Palla(pallaEni, 3, eni, (boyi - tepa), profil.kosa) +
+                    Shitapik(eni, boyi, profil.shishaushla) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa - ww - ww), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa), shisha)) +
+
+                    (shishaQavat * Shisha(tepa, 3, eni, eni, shisha)) +
+                    Zamok(1, zamok) +
+                    Mexanimz(1, mexanizm) +
+                    Tor(1, pallaEni, boyi, eni, tepa, tor)
+                ) * (1 + (qoshimcha.foiz / 100))) + qoshimcha.price
+            case 'Derazastyle8':
+                return ((
+                    Kosa(eni, boyi, profil.kosa) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+
+                    Orta((eni - ww), profil.orta) +
+                    Orta((tepa), profil.orta) +
+
+                    Palla(pallaEni, 3, eni, (boyi - tepa), profil.kosa) +
+                    Palla(pallaEni, 3, eni, (boyi - tepa), profil.kosa) +
+
+                    Shitapik(eni, boyi, profil.shishaushla) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa - ww - ww), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa - ww - ww), shisha)) +
+
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa), shisha)) +
+                    (shishaQavat * Shisha(tepa, 3, eni, eni, shisha)) +
+                    Zamok(1, zamok) +
+                    Mexanimz(1, mexanizm) +
+                    Tor(1, pallaEni, boyi, eni, tepa, tor)
+                ) * (1 + (qoshimcha.foiz / 100))) + qoshimcha.price
+            case 'Derazastyle9':
+                return ((
+                    Kosa(eni, boyi, profil.kosa) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+                    Orta((eni - ww), profil.orta) +
+                    ArkaUzunligi(eni, arkaBaland, arkaAsos, profil.kosa) +
+                    Palla(pallaEni, 2, eni, (boyi), profil.kosa) +
+                    Shitapik(eni, boyi, profil.shishaushla) +
+                    ArkaShtapik(eni, arkaBaland, arkaAsos, profil.shishaushla) +
+
+                    (shishaQavat * Shisha(pallaEni, 2, eni, (boyi - tepa - ww - ww), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 2, eni, (boyi - tepa), shisha)) +
+                    (shishaQavat * Shisha(arkaAsos, 2, eni, eni, shisha)) +
+                    (shishaQavat * Shisha(arkaBaland, 2, eni, eni, shisha)) +
+
+                    Zamok(1, zamok) +
+                    Mexanimz(1, mexanizm) +
+                    Tor(1, pallaEni, boyi, eni, tepa, tor)
+                ) * (1 + (qoshimcha.foiz / 100))) + qoshimcha.price
+            case 'Derazastyle10':
+                return ((
+                    Kosa(eni, boyi, profil.kosa) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+
+                    Palla(pallaEni, 2, eni, (boyi - tepa), profil.kosa) +
+                    Palla(pallaEni, 2, eni, (boyi - tepa), profil.kosa) +
+
+                    Shitapik(eni, boyi, profil.shishaushla) +
+                    (shishaQavat * Shisha(pallaEni, 2, eni, (boyi - tepa - ww - ww), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 2, eni, (boyi - tepa - ww - ww), shisha)) +
+                    Zamok(1, zamok) +
+                    Mexanimz(1, mexanizm) +
+                    Tor(1, pallaEni, boyi, eni, tepa, tor)
+                ) * (1 + (qoshimcha.foiz / 100))) + qoshimcha.price
+            case 'Derazastyle11':
+                return ((
+                    Kosa(eni, boyi, profil.kosa) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+
+                    Orta((eni - ww), profil.orta) +
+                    ArkaUzunligi(eni, arkaBaland, arkaAsos, profil.kosa) +
+                    Palla(pallaEni, 3, eni, (boyi), profil.kosa) +
+                    Shitapik(eni, boyi, profil.shishaushla) +
+                    ArkaShtapik(eni, arkaBaland, arkaAsos, profil.shishaushla) +
+
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa - ww - ww), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa), shisha)) +
+
+                    (shishaQavat * Shisha(arkaAsos, 2, eni, eni, shisha)) +
+                    (shishaQavat * Shisha(arkaBaland, 2, eni, eni, shisha)) +
+                    Zamok(1, zamok) +
+                    Mexanimz(1, mexanizm) +
+                    Tor(1, pallaEni, boyi, eni, tepa, tor)
+                ) * (1 + (qoshimcha.foiz / 100))) + qoshimcha.price
+            case 'Derazastyle12':
+                return ((
+                    Kosa(eni, boyi, profil.kosa) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+
+                    Orta((eni - ww), profil.orta) +
+                    ArkaUzunligi(eni, arkaBaland, arkaAsos, profil.kosa) +
+                    Palla(pallaEni, 3, eni, (boyi), profil.kosa) +
+                    Palla(pallaEni, 3, eni, (boyi), profil.kosa) +
+
+                    Shitapik(eni, boyi, profil.shishaushla) +
+                    ArkaShtapik(eni, arkaBaland, arkaAsos, profil.shishaushla) +
+
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa - ww - ww), shisha)) +
+
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa - ww - ww), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa), shisha)) +
+
+                    (shishaQavat * Shisha(arkaAsos, 2, eni, eni, shisha)) +
+                    (shishaQavat * Shisha(arkaBaland, 2, eni, eni, shisha)) + Zamok(1, zamok) +
+                    Mexanimz(1, mexanizm) +
+                    Tor(1, pallaEni, boyi, eni, tepa, tor)
+                ) * (1 + (qoshimcha.foiz / 100))) + qoshimcha.price
+            case 'Derazastyle13':
+                return ((
+
+                    Kosa(eni, boyi, profil.kosa) +
+                    Orta((boyi - ww - tepa), profil.orta) +
+                    ArkaUzunligi(eni, arkaBaland, arkaAsos, profil.kosa) +
+
+                    Palla(pallaEni, 2, eni, (boyi - tepa), profil.kosa) +
+                    Palla(pallaEni, 2, eni, (boyi - tepa), profil.kosa) +
+
+                    Shitapik(eni, boyi, profil.shishaushla) +
+                    (shishaQavat * Shisha(pallaEni, 2, eni, (boyi - tepa - ww - ww), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 2, eni, (boyi - tepa - ww - ww), shisha)) +
+                    ArkaShtapik(eni, arkaBaland, arkaAsos, profil.shishaushla) +
+
+
+                    (shishaQavat * Shisha(arkaAsos, 2, eni, eni, shisha)) +
+                    (shishaQavat * Shisha(arkaBaland, 2, eni, eni, shisha)) + Zamok(1, zamok) +
+                    Zamok(1, zamok) +
+                    Mexanimz(1, mexanizm) +
+                    Tor(1, pallaEni, boyi, eni, tepa, tor)
+                ) * (1 + (qoshimcha.foiz / 100))) + qoshimcha.price
+            case 'Derazastyle14':
+                return ((
+                    Kosa(eni, boyi, profil.kosa) +
+                    Orta((boyi - ww ), profil.orta) +
+                    Orta((boyi - ww ), profil.orta) +
+
+                    Orta((eni - ww), profil.orta) +
+                    Palla(pallaEni, 3, eni, (boyi - tepa), profil.kosa) +
+                    Palla(pallaEni, 3, eni, ( tepa), profil.kosa) +
+
+                    Shitapik(eni, boyi, profil.shishaushla) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa - ww - ww), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa), shisha)) +
+                    (shishaQavat * Shisha(pallaEni, 3, eni, (boyi - tepa), shisha)) +
+
+                    (shishaQavat * Shisha(tepa, 2, eni, eni, shisha)) +
+                    Zamok(1, zamok) +
+                    Mexanimz(1, mexanizm) +
+                    Tor(1, pallaEni, boyi, eni, tepa, tor)
+                ) * (1 + (qoshimcha.foiz / 100))) + qoshimcha.price
 
 
 
             default:
-                break;
+                return (
+                   0
+                )
+
         }
     }
-    return eni + boyi
+
 }
+
 function Kosa(eni: number, boyi: number, price: number): number {
     return 2 * M(eni + boyi) * price
 }
@@ -87,15 +368,22 @@ function Shitapik(eni: number, boyi: number, price: number): number {
 function M(value: number): number {
     return value / 100
 }
-const Prodi: IProfil = {
-    profil: 'Alubest',
-    kosa: 28000,
-    orta: 40000,
-    shishaushla: 12000
+function ArkaUzunligi(eni: number, balandlig: number, akraasos: number, price: number): number {
+    const alfa = 4 * (Math.atan((2 * balandlig) / eni) * 180 / Math.PI)
+    return (M((alfa / 360) * 2 * Math.PI * (eni / (2 * Math.sin(alfa * Math.PI / 180)))) + M(2 * akraasos)) * price
+
+}
+function ArkaShtapik(eni: number, balandlig: number, akraasos: number, price: number): number {
+    const alfa = 4 * (Math.atan((2 * balandlig) / eni) * 180 / Math.PI)
+    return (M((alfa / 360) * 2 * Math.PI * (eni / (2 * Math.sin(alfa * Math.PI / 180)))) + M(2 * akraasos)) * price
+
 }
 
 
-console.log(NarxHisoblash('Derazastyle3', 105, 140, 45, 0, Prodi, 80000, 0, 0, 50000));
+
+
+
+// console.log(NarxHisoblash('Derazastyle3', 105, 140, 45, 0, Prodi, 80000, 0, 0, 50000));
 
 
 

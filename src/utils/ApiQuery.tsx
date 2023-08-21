@@ -1,9 +1,9 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { instance } from "./Axios";
- const Https='http://localhost:5000'
+ //const Https='http://localhost:5000'
  
 
-// const Https='https://my-akfa-28baeea2951f.herokuapp.com'
+const Https='https://my-akfa-28baeea2951f.herokuapp.com'
 export const useGet = (keys:[string], url:string) => {
     return useQuery(keys, ()=>instance.get(`${Https+url}`).then(resp=>resp.data)  )
 }

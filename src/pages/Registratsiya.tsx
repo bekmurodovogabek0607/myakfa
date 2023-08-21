@@ -156,7 +156,7 @@ const Register = () => {
                         <Button type="primary" htmlType="submit" className="login-form-button" disabled={LoadinRegister}>
                             {RegisterChecd ? "Parolni jo'natish" : LoadinRegister ? <LoadingOutlined /> : "Registratsiya"}
                         </Button>
-                        hisobingiz bormi <Link to="/login">Kirish</Link>
+                        hisobingiz bormi <Link to="/">Kirish</Link>
                     </Form.Item>
                 </Form>
             </div>

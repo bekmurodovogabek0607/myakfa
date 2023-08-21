@@ -10,6 +10,9 @@ import Login from "./Login"
 
 const Home = () => {
   const props=useContext(Context)
+  console.log(props?.User);
+  console.log(localStorage.getItem('my-akfa-x-access-token'));
+  
   return (
     <>
     {props?.User.name==''?<Login/>: <div className="HomeContainer">

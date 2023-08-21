@@ -13,11 +13,14 @@ import ModalPage from './Component/Modal';
 import Register from './pages/Registratsiya';
 import ProtectedRoute from './utils/ProtectedRoute';
 import ProtectedRouteLogin from './utils/ProtectedRouteLogin';
+import ForgatPassword from './pages/ForgatPassword';
+
 
 
 
 function App() {
 
+console.log(Math.atan((1))*180/Math.PI);
 
   return (
     <><GlobalProvayder>
@@ -38,6 +41,10 @@ function App() {
         <Route exact path="/zakaz" component={ProtectedRouteLogin('Zakaz')} />
         <Route exact path="/login" component={ProtectedRoute} />
         <Route exact path="/register" component={Register} />
+        <Route exact path="/forgatpassword" component={ForgatPassword} />
+       
+
+
 
 
       </Switch>
